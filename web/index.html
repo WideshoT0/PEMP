@@ -1,20 +1,45 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
-        <title>ShareFile - PEMP</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="default.css">
+        <script type="text/javascript">
+
+            function activateTab(pageId) {
+                var tabCtrl = document.getElementById('tabCtrl');
+                var pageToActivate = document.getElementById(pageId);
+                for (var i = 0; i < tabCtrl.childNodes.length; i++) {
+                    var node = tabCtrl.childNodes[i];
+                    if (node.nodeType == 1) { /* Element */
+                        node.style.display = (node == pageToActivate) ? 'block' : 'none';
+                    }
+                }
+            }
+
+        </script>
     </head>
     <body>
-        <h1>Name Form</h1>
-        <form name="Name Input Form" action="response.jsp">
-            <input type="text" name="name" value="" />
-            <input type="submit" value="ok" />
-        </form>
+        <ul id="tabs"> 
+            <li id="mobile">
+                <a href="javascript:activateTab('page1')">Mobile</a>
+            </li> 
+            <li id="webapp">
+                <a href="javascript:activateTab('page2')">WebApp</a>
+            </li>
+            <li id="sync">
+                <a href="javascript:activateTab('page3')">Sync</a>
+            </li>
+            <li id="platform">
+                <a href="javascript:activateTab('page4')">Platform</a>
+            </li>
+            <li id="desktopapps">
+                <a href="javascript:activateTab('page5')">Desktop Apps</a>
+            </li>
+        </ul>
+        <div id="tabCtrl">
+            <div id="page1" style="display: block;">Page 1</div>
+            <div id="page2" style="display: none;">Page 2</div>
+            <div id="page3" style="display: none;">Page 3</div>
+            <div id="page4" style="display: none;">Page 4</div>
+            <div id="page5" style="display: none;">Page 5</div>
+        </div>
     </body>
 </html>
